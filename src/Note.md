@@ -29,3 +29,11 @@
 #### TreeSet để lưu danh sách số 
 #### Tách số bằng regex và xử lý ngoại lệ khi chuyển từ kiểu string sang int
 ![img_7.png](img_7.png)
+# 6. J07013 - DANH SÁCH SINH VIÊN TRONG FILE NHỊ PHÂN (danhsachsinhvien1)
+#### Bài này xử lý ngoại lệ mức cao 
+#### Yêu cầu: đọc file nhị phân bằng ObjectInputStream, chuyển ngày sinh về kiểu Date
+#### Bắt buộc: Đặt tên biến, packet giống yêu cầu đề bài
+![img_8.png](img_8.png)
+#### Xử lý ngoại lệ bằng cách implements Serializable
+![img_9.png](img_9.png)
+![img_10.png](img_10.png)
