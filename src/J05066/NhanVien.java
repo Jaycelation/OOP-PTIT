@@ -5,28 +5,33 @@ import java.util.*;
 import java.io.*;
 
 public class NhanVien {
-    private String hoTen, chucVu, heSoLuong, soHieuNV;
-    public NhanVien(String hoTen, String chucVu, String heSoLuong, String soHieuNV) {
-        this.hoTen = hoTen;
-        this.chucVu = chucVu;
-        this.heSoLuong = heSoLuong;
-        this.soHieuNV = soHieuNV;
+    private String maNV, tenNV;
+    private String chucVu;
+    private String hsLuong;
+    private String shNV;
+    public NhanVien(String maNV, String tenNV) {
+        this.maNV = maNV;
+        this.tenNV = tenNV;
+
+        this.chucVu = maNV.substring(0, 2);
+        this.hsLuong = maNV.substring(2, 4);
+        this.shNV = maNV.substring(4);
     }
 
-    public String getHoTen() {
-        return hoTen;
+    public String getTenNV() {
+        return tenNV;
     }
 
-    public String getHeSoLuong() {
-        return heSoLuong;
+    public String getHsLuong() {
+        return hsLuong;
     }
 
-    public String getSoHieuNV() {
-        return soHieuNV;
+    public String getShNV() {
+        return shNV;
     }
 
     @Override
     public String toString() {
-        return hoTen + " " + chucVu + " " + soHieuNV + " " + heSoLuong;
+        return tenNV + " " + chucVu + " " + shNV + " " + hsLuong;
     }
 }
