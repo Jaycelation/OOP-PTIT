@@ -4,13 +4,9 @@ package J06007;
 import java.util.*;
 import java.io.*;
 
-/**
- * Create on 27/10/2024 13:25 by jayce
- */
-
 public class GiangVien {
     private String id, name;
-
+    private double time;
     public GiangVien(String id, String name) {
         this.id = id;
         this.name = name;
@@ -18,6 +14,14 @@ public class GiangVien {
 
     public String getId() {
         return id;
+    }
+
+    public double getTime() {
+        return time;
+    }
+
+    public void setTime(double time) {
+        this.time = time;
     }
 
     @Override

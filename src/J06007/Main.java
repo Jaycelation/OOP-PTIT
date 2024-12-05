@@ -1,12 +1,8 @@
 package J06007;
 
-
 import java.util.*;
 import java.io.*;
 
-/**
- * Create on 27/10/2024 13:25 by jayce
- */
 
 public class Main {
     public static void main(String[] args) {
@@ -40,32 +36,23 @@ public class Main {
         }
 
         int c = Integer.parseInt(sc.nextLine());
-        ArrayList<HocPhan> listHP = new ArrayList<>();
-        for (int i = 1; i <= c; ++i) {
+        HashMap<String, Double> map = new HashMap<>();
+        while (c-- > 0) {
             String[] line = sc.nextLine().split("\\s+");
             String idGV = line[0];
-            String idHP = line[1];
+            String idMH = line[1];
             double time = Double.parseDouble(line[2]);
-            GiangVien gv = null;
-            for (GiangVien g : listGV) {
-                if (idGV.equals(g.getId())) {
-                    gv = g;
-                    break;
-                }
+            if (map.containsKey(idGV)) {
+                map.put(idGV, map.get(idGV) + time);
+            } else {
+                map.put(idGV, time);
             }
-            MonHoc mh = null;
-            for (MonHoc m : listMH) {
-                if (idHP.equals(m.getId())) {
-                    mh = m;
-                    break;
-                }
-            }
-            HocPhan hp = new HocPhan(gv, mh, time);
-            listHP.add(hp);
         }
-        for (HocPhan hp : listHP) {
-            System.out.println(hp);
+
+        for (GiangVien gv : listGV) {
+            System.out.println(gv + " " + String.format("%.2f", map.get(gv.getId())));
         }
+
     }
 }
 /*
@@ -75,7 +62,8 @@ INT1306 Cau truc du lieu va giai thuat
 2
 GV01 Nguyen Van An
 GV02 Hoang Binh Minh
-2
+3
 GV01 INT1155 113.2
 GV02 INT1306 126.72
+GV01 INT1306 126.72
  */
