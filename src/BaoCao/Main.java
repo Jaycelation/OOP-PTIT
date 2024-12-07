@@ -5,7 +5,7 @@ import java.io.*;
 
 public class Main {
     public static void main(String[] args) throws IOException, FileNotFoundException {
-        Scanner scanner = new Scanner(new File("src/BaoCao/BAITAP.in"));
+        Scanner scanner = new Scanner(new File("BAITAP.in"));
         ArrayList<SinhVien> listSv = new ArrayList<>();
         while (scanner.hasNextLine()) {
             String maSV = scanner.nextLine();
@@ -13,7 +13,7 @@ public class Main {
             String tenDeTai = scanner.nextLine();
             listSv.add(new SinhVien(maSV, tenSV, tenDeTai));
         }
-        scanner = new Scanner(new File("src/BaoCao/BAOCAO.in"));
+        scanner = new Scanner(new File("BAOCAO.in"));
         ArrayList<BaoCao> listBC = new ArrayList<>();
         while (scanner.hasNextLine()) {
             String maSV = scanner.nextLine();
