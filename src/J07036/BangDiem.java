@@ -1,4 +1,4 @@
-package J07035;
+package J07036;
 
 public class BangDiem {
     private SinhVien sinhVien;
@@ -11,24 +11,20 @@ public class BangDiem {
         this.diem = diem;
     }
 
-    public SinhVien getSinhVien() {
-        return sinhVien;
-    }
-
-    public MonHoc getMonHoc() {
-        return monHoc;
+    public String getMaMH() {
+        return monHoc.getMaMH();
     }
 
     public String getMaSV() {
         return sinhVien.getMaSV();
     }
 
-    public double getDiem() {
-        return Double.parseDouble(diem);
+    public String getLop() {
+        return sinhVien.getLop();
     }
 
     @Override
     public String toString() {
-        return sinhVien + " " + diem;
+        return sinhVien + " " + monHoc + " " + diem;
     }
 }

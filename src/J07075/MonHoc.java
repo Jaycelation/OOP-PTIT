@@ -1,4 +1,8 @@
-package J07035;
+package J07075;
+
+
+import java.util.*;
+import java.io.*;
 
 public class MonHoc {
     private String maMH, tenMH;
@@ -14,8 +18,8 @@ public class MonHoc {
         return maMH;
     }
 
-    public String getTenMH() {
+    @Override
+    public String toString() {
         return tenMH;
     }
-
 }
