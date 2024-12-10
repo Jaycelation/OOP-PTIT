@@ -1,28 +1,26 @@
 package J07020;
 
-public class KhachHang {
-    private int count = 1;
-    private String id = "KH";
-    private String name;
-    private String sex;
-    private String dob;
-    private String address;
 
-    public KhachHang(String name, String sex, String dob, String address) {
-        this.name = name;
-        this.sex = sex;
-        this.dob = dob;
-        this.address = address;
-        this.id = id + String.format("%03d", count);
-        count++;
+import java.util.*;
+import java.io.*;
+
+public class KhachHang {
+    private String maKH, tenKH, gioiTinh, ngaySinh, diaChi;
+
+    public KhachHang(String maKH, String tenKH, String gioiTinh, String ngaySinh, String diaChi) {
+        this.maKH = maKH;
+        this.tenKH = tenKH;
+        this.gioiTinh = gioiTinh;
+        this.ngaySinh = ngaySinh;
+        this.diaChi = diaChi;
     }
 
-    public String getId() {
-        return id;
+    public String getMaKH() {
+        return maKH;
     }
 
     @Override
     public String toString() {
-        return name + " " + address;
+        return tenKH + " " + diaChi ;
     }
 }

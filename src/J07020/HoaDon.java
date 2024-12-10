@@ -1,19 +1,26 @@
 package J07020;
 
 
+import java.util.*;
+import java.io.*;
+
 public class HoaDon {
+    private String maHD;
     private KhachHang khachHang;
     private MatHang matHang;
-    private int count;
+    private int soLuong;
+    private int thanhTien;
 
-    public HoaDon(KhachHang khachHang, MatHang matHang, int count) {
+    public HoaDon(String maHD, KhachHang khachHang, MatHang matHang, int soLuong) {
+        this.maHD = maHD;
         this.khachHang = khachHang;
         this.matHang = matHang;
-        this.count = count;
+        this.soLuong = soLuong;
+        this.thanhTien = soLuong * matHang.getGiaBan();
     }
 
     @Override
     public String toString() {
-        return khachHang + " " + matHang + " " + count;
+        return maHD + " " + khachHang + " " + matHang + " " + soLuong + " " + thanhTien;
     }
 }

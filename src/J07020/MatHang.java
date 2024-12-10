@@ -1,33 +1,31 @@
 package J07020;
 
+
+import java.util.*;
+import java.io.*;
+
 public class MatHang {
-    private String id = "MH";
-    private int count = 1;
-    private String name;
-    private String unit;
-    private int buyCost;
-    private int sellCost;
+    private String maMH, tenMH, donVi;
+    private int giaMua, giaBan;
 
-    public MatHang(String name, String unit, int buyCost, int sellCost) {
-        this.id = id + String.format("%03d", count);
-        count++;
-        this.name = name;
-        this.unit = unit;
-        this.buyCost = buyCost;
-        this.sellCost = sellCost;
+    public MatHang(String maMH, String tenMH, String donVi, int giaMua, int giaBan) {
+        this.maMH = maMH;
+        this.tenMH = tenMH;
+        this.donVi = donVi;
+        this.giaMua = giaMua;
+        this.giaBan = giaBan;
     }
 
-    public String getId() {
-        return id;
+    public String getMaMH() {
+        return maMH;
     }
 
-    public int total() {
-
-        return 0;
+    public int getGiaBan() {
+        return giaBan;
     }
 
     @Override
     public String toString() {
-        return unit + " " + buyCost + " " + sellCost + " " + total();
+        return tenMH + " " + donVi + " " + giaMua + " " + giaBan;
     }
 }

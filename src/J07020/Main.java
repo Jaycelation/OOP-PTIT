@@ -1,53 +1,54 @@
 package J07020;
 
-
 import java.util.*;
 import java.io.*;
 
-
 public class Main {
-    public static void main(String[] args) throws FileNotFoundException {
-        Scanner scanner = new Scanner(new File("src/J07020/KH.in"));
+    public static void main(String[] args) throws IOException {
+        Scanner scanner = new Scanner(new File("KH.in"));
         int n = Integer.parseInt(scanner.nextLine());
         ArrayList<KhachHang> listKH = new ArrayList<>();
-
-        for (int i = 0; i < n; i++) {
-            listKH.add(new KhachHang(scanner.nextLine(), scanner.nextLine(), scanner.nextLine(), scanner.nextLine()));
+        int cnt = 1;
+        while (n-- > 0) {
+            listKH.add(new KhachHang("KH" + String.format("%03d", cnt++), scanner.nextLine(), scanner.nextLine(), scanner.nextLine(), scanner.nextLine()));
         }
-        scanner = new Scanner(new File("src/J07020/MH.in"));
+
+        scanner = new Scanner(new File("MH.in"));
+        n = Integer.parseInt(scanner.nextLine());
         ArrayList<MatHang> listMH = new ArrayList<>();
-        n = Integer.parseInt(scanner.nextLine());
-        for (int i = 0; i < n; i++) {
-            listMH.add(new MatHang(scanner.nextLine(), scanner.nextLine(), Integer.parseInt(scanner.nextLine()), Integer.parseInt(scanner.nextLine())));
+        cnt = 1;
+        while (n-- > 0) {
+            listMH.add(new MatHang("MH" + String.format("%03d", cnt++), scanner.nextLine(), scanner.nextLine(), Integer.parseInt(scanner.nextLine()), Integer.parseInt(scanner.nextLine())));
         }
-
-        scanner = new Scanner(new File("src/J07020/HD.in"));
-
         ArrayList<HoaDon> listHD = new ArrayList<>();
+        scanner = new Scanner(new File("HD.in"));
         n = Integer.parseInt(scanner.nextLine());
-        for (int i = 0; i < n; i++) {
+        cnt = 1;
+        while (n-- > 0) {
             String[] line = scanner.nextLine().split("\\s+");
-            String idKH = line[0];
-            String idMH = line[1];
-            int count = Integer.parseInt(line[2]);
-            KhachHang kh = null;
-            for (KhachHang khachHang : listKH) {
-                if (khachHang.getId().equals(idKH)) {
-                    kh = khachHang;
+            String maKH = line[0];
+            String maMH = line[1];
+            int soLuong = Integer.parseInt(line[2]);
+            KhachHang khachHang = null;
+            MatHang matHang = null;
+            for (KhachHang i : listKH) {
+                if (i.getMaKH().equals(maKH)) {
+                    khachHang = i;
                     break;
                 }
             }
-            MatHang mh = null;
-            for (MatHang matHang : listMH) {
-                if (matHang.getId().equals(idMH)) {
-                    mh = matHang;
+            for (MatHang i : listMH) {
+                if (i.getMaMH().equals(maMH)) {
+                    matHang = i;
                     break;
                 }
             }
-            listHD.add(new HoaDon(kh, mh, count));
+            listHD.add(new HoaDon("HD" + String.format("%03d", cnt++), khachHang, matHang, soLuong));
         }
-        for (HoaDon hoaDon : listHD) {
-            System.out.println(hoaDon);
+
+        for (HoaDon i : listHD) {
+            System.out.println(i);
         }
+
     }
 }

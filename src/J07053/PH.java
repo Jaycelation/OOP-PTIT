@@ -1,71 +1,62 @@
 package J07053;
 
-
-import java.util.*;
-import java.io.*;
-
-/**
- * Create on 09/10/2024 13:35 by jayce
- */
-
 public class PH {
-    private String id, ten, ngaySinh;
-    private double diemLt, diemTh;
+    private String maNV, tenNV, ngaySinh;
+    private double diemLT, diemTH;
+    private int diem;
+    private String xepLoai;
+    private int tuoi;
 
-    public PH(String id, String ten, String ngaySinh, double diemLt, double diemTh) {
-        this.id = id;
-        this.ten = ten;
+    public PH(String maNV, String tenNV, String ngaySinh, double diemLT, double diemTH) {
+        this.maNV = maNV;
+        String[] line = tenNV.trim().toLowerCase().split("\\s+");
+        String temp = "";
+        for (int i = 0; i < line.length; i++) {
+            temp += line[i].substring(0, 1).toUpperCase() + line[i].substring(1) + " ";
+        }
+        this.tenNV = temp.trim();
+        if (ngaySinh.charAt(1) == '/') {
+            ngaySinh = "0" + ngaySinh;
+        }
+        if (ngaySinh.charAt(4) == '/') {
+            ngaySinh = ngaySinh.substring(0, 3) + "0" + ngaySinh.substring(3);
+        }
         this.ngaySinh = ngaySinh;
-        this.diemLt = diemLt;
-        this.diemTh = diemTh;
-    }
+        this.diemLT = diemLT;
+        this.diemTH = diemTH;
 
-    public PH() {
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public String getTen() {
-        return ten;
-    }
-
-    public String getNgaySinh() {
-        return ngaySinh;
-    }
-
-    public double getDiemLt() {
-        return diemLt;
-    }
-
-    public double getDiemTh() {
-        return diemTh;
-    }
-
-    public int getTuoi(String ngaySinh) {
-        int result = Integer.parseInt(ngaySinh.substring(6));
-        return result;
-    }
-
-    public double getDiem(double diemLt, double diemTh) {
-        double result = 0;
-
-        if (diemLt >= 8 && diemTh >= 8) {
-            result += 1;
+        double diemThuong = 0;
+        if (diemLT >= 8 && diemTH >= 8) {
+            diemThuong = 1;
+        } else if (diemLT >= 7.5 && diemTH >= 7.5) {
+            diemThuong = 0.5;
+        } else {
+            diemThuong = 0;
         }
-        if (diemLt >= 7.5 && diemTh >= 7.5) {
-            result += 0.5;
+        double val = (diemLT + diemTH) / 2 + diemThuong;
+        diem = (int) Math.round(val);
+        if (diem > 10) {
+            diem = 10;
         }
-        result = (diemLt + diemTh)/2;
-        if (result > 10) {
-            result = 10;
+
+        if (diem < 5) {
+            xepLoai = "Truot";
+        } else if (diem >= 5 && diem <= 6) {
+            xepLoai = "Trung binh";
+        } else if (diem == 7) {
+            xepLoai = "Kha";
+        } else if (diem == 8) {
+            xepLoai = "Gioi";
+        } else {
+            xepLoai = "Xuat sac";
         }
-        return result;
+
+        tuoi = 2021 - Integer.parseInt(ngaySinh.substring(6));
+
     }
 
     @Override
     public String toString() {
-        return this.id + " " + this.ten + " " + getTuoi(this.ngaySinh) + " " + "";
+        return maNV + " " + tenNV + " " + tuoi + " " + diem + " " + xepLoai;
     }
 }
