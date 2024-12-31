@@ -7,7 +7,7 @@
 #### In ra giao và hợp của 2 file nhị phân / Tìm số nguyên tố thỏa mãn điều kiện có trong cả 2 file nhị phân / ...
 ### Câu 2, 3: Hướng đối tượng cơ bản
 #### Code theo hàm main có sẵn tích hợp nhập, xuất dữ liệu (có thể trong file) - Mức 1,2 codeptit, có thể 1 / 2 object
-### Câu 4: Có thể 1 câu mức độ 3 trong codeptit (https://code.ptit.edu.vn/student/question/J06008), 3 object, file
+### Câu 4: Có thể 1 câu mức độ 3 trong codeptit [J06008](https://code.ptit.edu.vn/student/question/J06008), 3 object, file
 ### Câu 5: Hướng đối tượng nâng cao (Abtraction Class, Interface) + code theo hàm main có sẵn, 3 object
 
 ## Tham khảo thêm code tại:
